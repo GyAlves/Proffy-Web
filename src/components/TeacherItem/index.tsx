@@ -1,33 +1,52 @@
 import React from 'react';
+import api from '../../services/api';
 
 import whatsappIcon from '../../assets/images/icons/whatsapp.svg';
 
 import './styles.css';
 
-function TeacherItem(){
+export interface Teacher {
+    id: number;
+    avatar: string;
+    bio: string;
+    cost: number;
+    name: string;
+    subject: string;
+    whatsapp: string;
+}
+
+interface TeacherItemProps {
+  teacher: Teacher;
+}
+
+const TeacherItem: React.FC<TeacherItemProps> = ({teacher}) => {
+  function createNewConnection(){
+    api.post('connections', {
+      user_id: teacher.id
+    })
+  }
+
   return(
     <article className="teacher-item">
     <header>
-      <img src="https://api.adorable.io/avatars/285/abott@adorable.png" alt="Avatar"/>
+      <img src={teacher.avatar} alt={teacher.name}/>
       <div>
-        <strong>Gyasmin Assunção</strong>
-        <span>Backend</span>
+        <strong>{teacher.name}</strong>
+        <span>{teacher.subject}</span>
       </div>
     </header>
     <p>
-      Entusiasta das melhores tecnologias para desenvolvimento Backend.
-      <br></br>
-      Apaixonada por desenvolver APIs Rest. Maniaca por DDD e obcecada por TDD.
+      {teacher.bio}
     </p>
     <footer>
       <p>
         Preço/hora
-        <strong>R$ 80,00</strong>
+        <strong>{teacher.cost}</strong>
       </p>
-      <button type="button">
+      <a target="_blank" onClick={createNewConnection} href={`http://wa.me/${teacher.whatsapp}`}>
         <img src={whatsappIcon} alt="Entrar em contato"/>
         Entrar em contato
-      </button>
+      </a>
     </footer>
   </article>
   )

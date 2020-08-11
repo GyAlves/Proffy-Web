@@ -1,19 +1,19 @@
-.textarea-block {
+.select-block {
   position: relative;
 }
 
-.textarea-block + .textarea-block {
+.select-block + .select-block {
   margin-top: 1.4rem;
 }
 
-.textarea-block label {
+.select-block label {
   font-size: 1.4rem;
 }
 
-.textarea-block textarea {
+.select-block select {
   width: 100%;
-  height: 16rem;
-  min-height: 8rem;
+  height: 6rem;
+  min-height: 5rem;
   margin-top: 0.8rem;
   border-radius: 0.8rem;
   background: var(--color-input-background);
@@ -24,7 +24,7 @@
   font: 1.6rem Archivo;
 }
 
-.textarea-block:focus-within::after {
+.select-block:focus-within::after {
   width: calc(100% - 3.2rem);
   height: 2px;
   content: '';

@@ -1,21 +1,28 @@
-import React, {HTMLAttributes} from 'react';
+import React, {SelectHTMLAttributes} from 'react';
 
-// desse modo o componente input revece TODAS as props de um input normal
-// rest -> armazena todas as props e passa dirtamente pro input
 import './styles.css';
 
-interface TextareaProps extends HTMLAttributes<HTMLTextAreaElement> {
+interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   name: string;
   label: string;
+  options: Array<{
+    value: string;
+    label: string;
+  }>
 }
 
-const TextArea:React.FC<TextareaProps> = ({label, name, ...rest}) => {
+const Select:React.FC<SelectProps> = ({label, name,options, ...rest}) => {
   return(
-    <div className="textarea-block">
+    <div className="select-block">
       <label htmlFor={name}>{label}</label>
-      <textarea id={name} {...rest}/>
+      <select value="" id={name} {...rest}>
+          <option value='' disabled hidden>Selecione uma opção</option>
+          {options.map(option => {
+            return <option key={option.value} value={option.value}>{option.value}</option>
+          })}
+      </select>
     </div>
   )
 }
 
-export default TextArea;
+export default Select;

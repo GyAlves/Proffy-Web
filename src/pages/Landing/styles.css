@@ -11,7 +11,7 @@
 }
 
 .logo-container img {
-  height: 10rem;
+  height: 13rem;
 }
 
 .hero-image {
@@ -32,7 +32,7 @@
 .buttons-container {
   display: flex;
   justify-content: center;
-  margin: 3.2rem 0;
+  margin: 5.2rem 0;
 }
 
 .buttons-container a {
