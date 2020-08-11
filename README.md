@@ -27,8 +27,9 @@ Uma plataforma de estudos on-line onde você escolhe seu professor e o preço qu
 
 ## Funcionalidades :
 
-- Busca de professores
+- Busca de professores usando filtros de horário, matéria e dia da semana
 - Torne-se um professor
+- Conecte-se com um proffy através do whatsapp
 
 ## Tecnologias  📱 
 
